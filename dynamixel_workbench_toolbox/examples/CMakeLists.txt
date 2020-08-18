@@ -4,6 +4,7 @@ project(dynamixel_workbench)
 add_compile_options(-std=c++11)
 
 include_directories(
+  /opt/ros/melodic/include
   ../src
 )
 
@@ -17,7 +18,7 @@ add_library(dynamixel_workbench
 if(APPLE)
   target_link_libraries(dynamixel_workbench LINK_PUBLIC "/usr/local/lib/libdxl_mac_cpp.dylib")
 else()
-  target_link_libraries(dynamixel_workbench LINK_PUBLIC "/usr/local/lib/libdxl_x64_cpp.so")
+  target_link_libraries(dynamixel_workbench LINK_PUBLIC "/opt/ros/melodic/lib/libdynamixel_sdk.so")
 endif()
 
 add_executable(model_scan src/a_Model_Scan.cpp)
